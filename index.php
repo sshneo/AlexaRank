@@ -1,11 +1,15 @@
 
 <?php
 
-//Javascript ile daha hızlı çalışır.
+/*
+Halil ŞAHİN
+Aralık 2018
+@sshneo
+*/
 
 $url="http://mynet.com";
-							 
-$xml = simplexml_load_file('http://data.alexa.com/data?cli=10&dat=snbamz&url='.$url);
+$alexaUrl='http://data.alexa.com/data?cli=10&dat=snbamz&url=';							 
+$xml = simplexml_load_file($alexaUrl.$url);
 
 $rankGLOBAL=isset($xml->SD[1]->POPULARITY)?$xml->SD[1]->POPULARITY->attributes()->TEXT:"Data Mevcut Değil";
 $rankTR=isset($xml->SD[1]->COUNTRY)?$xml->SD[1]->COUNTRY->attributes()->RANK:"Data Mevcut Değil";
